@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script can be run as a command and it is use
+# to remove files which is not useful
+# It differs from other unused file deleting script
+# as it provide you the interactive opportunity to check the
+# content of a file before deleting the file
+
+# You have to specify the directory using -d
+
+if [ $# -eq 0 ]
+then
+	echo "Usage: clear [command] directory_name"
+fi
+
+
+if [ -f directory ]
+then
+	echo "Hello World"
+then
