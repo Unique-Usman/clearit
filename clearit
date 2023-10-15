@@ -7,13 +7,7 @@
 
 # You have to specify the directory using -d
 
-if [ $# -eq 0 ]
+if [ $# -eq 0 ] || [ ! -d "$1" ]
 then
 	echo "Usage: clear [command] directory_name"
 fi
-
-
-if [ -f directory ]
-then
-	echo "Hello World"
-then
