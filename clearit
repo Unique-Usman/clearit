@@ -21,5 +21,13 @@ if [ -f $1 ]
 then
 	echo -e "Check content before del ? yes or no"
 	read check_content
-	echo $check_content
+	if [ "$check_content" == "yes" ]
+	then
+		cat $1
+		sleep 2
+		echo "Hello"
+	else
+		rm $1
+		echo "Succesfully removed the file"
+	fi
 fi
