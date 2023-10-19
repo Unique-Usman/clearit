@@ -5,7 +5,8 @@
 # as it provide you the interactive opportunity to check the
 # content of a file before deleting the file
 
-
+# list of colors that we are using
+RED=""
 # You have to specify the directory using -d
 if [ $# -eq 0 ] || [ ! -e "$1" ] || [ $# -gt 1 ]
 then
@@ -25,7 +26,14 @@ then
 	then
 		cat $1
 		sleep 2
-		echo "Hello"
+
+		echo -e "Do you still want to remove the file yes or no?"
+		read remove_file
+
+		if [ "$remove_file" == "yes" ]
+		then
+			rm $1
+		fi
 	else
 		rm $1
 		echo "Succesfully removed the file"
