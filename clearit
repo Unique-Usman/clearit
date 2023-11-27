@@ -39,3 +39,5 @@ then
 		echo "Succesfully removed the file"
 	fi
 fi
+
+#todo :- Write function for different cases, if the arguments is either file or folder
