@@ -6,11 +6,11 @@
 # content of a file before deleting the file
 
 # list of colors that we are using
-RED=""
+RED=31
 # You have to specify the directory using -d
 if [[ $# -eq 0 ]] || [[ ! -e "$1" ]] || [[ $# -gt 1 ]]
 then
-	echo "Usage: clear [command] directory_name"
+	echo -e "\e[;31m Usage: clear [command] directory_name \e[0m"
 	exit 2
 fi
 
