@@ -6,11 +6,11 @@ Welcome to our project! We're thrilled that you are considering contributing. Be
 
 ### Bug Reports
 
-If you encounter a bug or issue, please open a new [issue](link-to-issues) on GitHub. Include detailed steps to reproduce the problem.
+If you encounter a bug or issue, please open a new [issue] on GitHub. Include detailed steps to reproduce the problem.
 
 ### Feature Requests
 
-Have an idea for a new feature? Submit a [feature request](link-to-feature-requests) and describe it thoroughly.
+Have an idea for a new feature? Submit a and describe it thoroughly.
 
 ### Pull Requests
 
@@ -25,6 +25,6 @@ We welcome Pull Requests (PRs) from everyone. Follow these steps to contribute:
 
 ## License
 
-By contributing to this project, you agree that your contributions will be licensed under the [license](link-to-license).
+By contributing to this project, you agree that your contributions will be licensed under the [GNU GENERAL PUBLIC LICENSE]("./LICENSE").
 
 Thank you for considering contributing to our project. Your help is greatly appreciated!

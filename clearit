@@ -78,4 +78,3 @@ elif [[ -d "$1" ]]
 then
   handle_directory "$1"
 fi
-#todo :- Write function for different cases, if the arguments is either file or folder
