@@ -10,34 +10,72 @@ RED=31
 # You have to specify the directory using -d
 if [[ $# -eq 0 ]] || [[ ! -e "$1" ]] || [[ $# -gt 1 ]]
 then
-	echo -e "\e[;31m Usage: clear [command] directory_name \e[0m"
+  echo -e "\e[${RED}mUsage: clear [command] directory_name of file_name\e[0m"
 	exit 2
 fi
 
+# function to handle file
+handle_file () {
+  if file "$1" | grep -q "ELF"; then
+    echo "The file is an executable binary. Do you want to continue to delete it yes or no" 
+    read -r delete_binary
+    if [[ "$delete_binary" == "yes" || "$delete_binary" == "n" ]]
+    then
+      rm "$1"
+    else
+      :
+    fi
+
+  else
+    echo -e "Check content before del ? yes or no"
+    read -r check_content
+    if [[ "$check_content" == "yes" ]]
+    then
+      open "$1"
+
+      echo -e "Do you still want to remove the file yes or no?"
+      read -r remove_file
+
+      if [[ "$remove_file" == "yes" || "$remove_file" == "y"  ]]
+      then
+        rm "$1"
+        echo "Succesfully removed the file"
+      else
+        :
+      fi
+    else
+      rm "$1"
+      echo "Succesfully removed the file"
+    fi
+  fi
+}
+# function to handle directory directory
+handle_directory () {
+  for doc in "$1"/*
+  do     
+    filename=$(basename "$doc")
+    echo "File: $filename"
+    if [[ -d "$doc" ]]
+    then
+      printf '\n'
+      sleep 2
+      echo "This is a directory"
+      handle_directory "$doc";
+    elif [[ -f "$doc" ]]
+    then
+      handle_file "$doc"
+    fi
+  done
+}
 # If you specify file as the argument it is going to ask you
 # if you want to check the content of the file.
 # if after checking the content of the file you insist of deleting
 # then it will delete it
-if [[ -f $1 ]]
+if [[ -f "$1" ]]
 then
-	echo -e "Check content before del ? yes or no"
-	read check_content
-	if [[ "$check_content" == "yes" ]]
-	then
-		cat $1
-		sleep 2
-
-		echo -e "Do you still want to remove the file yes or no?"
-		read remove_file
-
-		if [[ "$remove_file" == "yes" ]]
-		then
-			rm $1
-		fi
-	else
-		rm $1
-		echo "Succesfully removed the file"
-	fi
+  handle_file "$1"
+elif [[ -d "$1" ]]
+then
+  handle_directory "$1"
 fi
-
 #todo :- Write function for different cases, if the arguments is either file or folder
