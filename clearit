@@ -10,7 +10,7 @@ RED=31
 # You have to specify the directory using -d
 if [[ $# -eq 0 ]] || [[ ! -e "$1" ]] || [[ $# -gt 1 ]]
 then
-  echo -e "\e[${RED}mUsage: clear [command] directory_name of file_name\e[0m"
+  echo -e "\e[${RED}mUsage: clearit [directory_name or file_name]\e[0m"
 	exit 2
 fi
 
