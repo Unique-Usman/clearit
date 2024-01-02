@@ -27,7 +27,10 @@ handle_file () {
     fi
 
   else
-    echo -e "Check content before del ? yes or no"
+    echo -e "Check content before del ?
+    type yes - to check content
+    no - to delete without checking, 
+    nod - not to delete file"
     read -r check_content
     if [[ "$check_content" == "yes" ]]
     then
@@ -43,7 +46,10 @@ handle_file () {
       else
         :
       fi
-    else
+    elif [[ "$check_content" == "nod" ]]
+    then
+      :
+    else 
       rm "$1"
       echo "Succesfully removed the file"
     fi
